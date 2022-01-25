@@ -26,8 +26,8 @@ class App extends React.Component {
     console.log(store.getState());
   }
   isMoviefavourite = (movie) => {
-    const { favourites } = this.props.store.getState()
-    const index = favourites.indexOf(movie);
+    const { movies } = this.props.store.getState()
+    const index = movies.favourites.indexOf(movie);
     if (index !== -1) return true;
     return false;
   }
@@ -35,15 +35,16 @@ class App extends React.Component {
   onChangeTab = (val) => {
     this.props.store.dispatch(setShowFavourites(val))
   }
-
+  //   key={`movies-${index}`}
   render() {
-    const { list, favourites, showFavourites } = this.props.store.getState();//{list:[],favourites:[],showFavourites:boolean}
+    const { movies ,search} = this.props.store.getState();//{ movies : {list:[],favourites:[],showFavourites:boolean} , search : {results:{},showSearchResults:boolean} }
+    const { list, favourites, showFavourites } = movies;//{list:[],favourites:[],showFavourites:boolean}
     console.log(this.props.store.getState());
 
     const displayMovies = showFavourites ? favourites : list;
     return (
       <div className="App">
-        < Navbar />
+        < Navbar search={search}  dispatch={this.props.store.dispatch}/>
         <div className='main'>
           <div className='tabs'>
             <div className={`tab ${showFavourites ? '' : 'active-tabs'}`} onClick={() => this.onChangeTab(false)}>Movies</div>
@@ -54,7 +55,7 @@ class App extends React.Component {
             {displayMovies.map((movie, index) => {
               return <MovieCard
                 movie={movie}
-                key={`movies-${index}`}
+                key={movie.imdbID}
                 dispatch={this.props.store.dispatch}
                 isFavourite={this.isMoviefavourite(movie)}
               />

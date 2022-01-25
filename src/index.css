@@ -57,6 +57,7 @@ body {
 }
 .search-result {
   display: flex;
+  flex-direction: column;
 }
 .search-result img {
   height: 150px;
