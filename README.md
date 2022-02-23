@@ -2,8 +2,6 @@
 
 It is a react and redux based movie App
 
-<<<<<<< HEAD
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -75,4 +73,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 # This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-> > > > > > > 068fff6af094ec2629848001448340cdc9de5669
